@@ -2,7 +2,7 @@ name: Tag & Build
 
 on:
     push:
-        branches: [ master ]
+        branches: [ main ]
 
 jobs:
     tag-build:
@@ -12,10 +12,10 @@ jobs:
             - uses: actions/checkout@v2
             - name: Configuring Git
               run: |
-                  git config --global user.email "me@dunklestoast.de"
-                  git config --global user.name "lerna"
+                  git config --global user.email "tech-hub@rnd.de"
+                  git config --global user.name "Johnny5"
             - name: Versioning via lerna
-              run: npx lerna version
+              run: GH_TOKEN=${{ secrets.GITHUBTOKEN }} npx lerna version
             - name: Installing Dependencies
               run: npx lerna bootstrap
             - name: Building all the things
