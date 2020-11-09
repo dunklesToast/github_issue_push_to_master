@@ -10,6 +10,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+              with:
+                  token: ${{ secrets.TOKEN }}
             - name: Installing Dependencies
               run: npx lerna bootstrap
             - name: Building all the things
